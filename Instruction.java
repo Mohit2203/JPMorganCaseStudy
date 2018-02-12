@@ -3,8 +3,7 @@
  */
 package jpMorganTradeImple;
 
-import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * @author mohit
@@ -15,22 +14,26 @@ public class Instruction {
 	private String entity;
 	private int units;
 	private String currency;
-	private Date instructionDate;
-	private Date settlementDate;
-	private BigDecimal pricePerUnit;
-	private BigDecimal fxRate;
+	private LocalDate instructionDate;
+	private LocalDate settlementDate;
+	private String buySellFlag;
 
-	public Instruction(String entity, int units, String currency,
-			Date instructionDate, Date settlementDate, BigDecimal pricePerUnit,
-			BigDecimal fxRate) {
+	public Instruction(String entity, int units, String currency, LocalDate instructionDate, LocalDate settlementDate,
+			String buySellFlag) {
 		this.entity = entity;
 		this.units = units;
 		this.currency = currency;
 		this.instructionDate = instructionDate;
 		this.settlementDate = settlementDate;
-		this.pricePerUnit = pricePerUnit;
-		this.fxRate = fxRate;
+		this.buySellFlag = buySellFlag;
+	}
 
+	public String getBuySellFlag() {
+		return buySellFlag;
+	}
+
+	public void setBuySellFlag(String buySellFlag) {
+		this.buySellFlag = buySellFlag;
 	}
 
 	/**
@@ -81,7 +84,7 @@ public class Instruction {
 	/**
 	 * @return the instructionDate
 	 */
-	public Date getInstructionDate() {
+	public LocalDate getInstructionDate() {
 		return instructionDate;
 	}
 
@@ -89,14 +92,14 @@ public class Instruction {
 	 * @param instructionDate
 	 *            the instructionDate to set
 	 */
-	public void setInstructionDate(Date instructionDate) {
+	public void setInstructionDate(LocalDate instructionDate) {
 		this.instructionDate = instructionDate;
 	}
 
 	/**
 	 * @return the settlementDate
 	 */
-	public Date getSettlementDate() {
+	public LocalDate getSettlementDate() {
 		return settlementDate;
 	}
 
@@ -104,38 +107,8 @@ public class Instruction {
 	 * @param settlementDate
 	 *            the settlementDate to set
 	 */
-	public void setSettlementDate(Date settlementDate) {
+	public void setSettlementDate(LocalDate settlementDate) {
 		this.settlementDate = settlementDate;
-	}
-
-	/**
-	 * @return the pricePerUnit
-	 */
-	public BigDecimal getPricePerUnit() {
-		return pricePerUnit;
-	}
-
-	/**
-	 * @param pricePerUnit
-	 *            the pricePerUnit to set
-	 */
-	public void setPricePerUnit(BigDecimal pricePerUnit) {
-		this.pricePerUnit = pricePerUnit;
-	}
-
-	/**
-	 * @return the fxRate
-	 */
-	public BigDecimal getFxRate() {
-		return fxRate;
-	}
-
-	/**
-	 * @param fxRate
-	 *            the fxRate to set
-	 */
-	public void setFxRate(BigDecimal fxRate) {
-		this.fxRate = fxRate;
 	}
 
 }
